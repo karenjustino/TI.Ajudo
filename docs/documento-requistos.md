@@ -1,6 +1,6 @@
 # Documento de Requisitos — TI.Ajudo
 
-**Versão:** 1.2 · **Data:** 11/10/2026
+**Versão:** 1.3 · **Data:** 11/10/2026
  
 **Desenvolvedores:** Karen Gabrielle Justino, Gabriel Anastácio Pereira, Miguel Pereira
  
@@ -16,12 +16,13 @@
 O TI.Ajudo atua como um Orientador Vocacional e Técnico em TI. Por meio de um questionário interativo e dinâmico, ele mapeia os interesses, os conhecimentos técnicos prévios e as competências comportamentais de quem está começando na área e, com base nas respostas, recomenda as áreas mais adequadas e uma trilha de estudos personalizada.
 
 ### 1.2 Escopo
-O TI.Ajudo é um site que orienta iniciantes em TI por meio de um questionário. Ao final, exibe as 3 áreas de estudo mais compatíveis com o perfil e uma trilha do básico ao intermediário que respeita o nível atual da pessoa. O site também apresenta a listagem das 7 áreas disponíveis na página inicial.
+O TI.Ajudo é uma aplicação web que orienta iniciantes em TI por meio de um questionário. Ao final, exibe as 3 áreas de estudo mais compatíveis com o perfil e uma trilha do básico ao intermediário que respeita o nível atual da pessoa. O site também apresenta a listagem das 7 áreas disponíveis na página inicial.
 
 **Dentro do escopo**
 - Questionário em 4 categorias, com lógica condicional.
 - Algoritmo de recomendação (Top 3 áreas e trilha personalizada).
 - Página inicial com a listagem das trilhas e seus detalhes.
+- Suporte a arquitetura modular com opção de integração de serviços de back-end para processamento de dados ou persistência leve, conforme a evolução do projeto.
 
 **Fora do escopo** (e como o projeto lida com isso)
 - **Venda de cursos próprios:** o site indica materiais de terceiros, preferencialmente gratuitos.
@@ -64,6 +65,7 @@ O público são iniciantes em TI: estudantes em busca de direcionamento, profiss
 | RF09 | O sistema deve permitir refazer o questionário. | Baixa | Pendente |
 | RF10 | O sistema deve permitir explorar, na página inicial, a listagem das 7 trilhas e abrir o detalhamento de cada uma. | Média | Pendente |
 | RF11 | A página inicial deve ter uma chamada para ação que inicia o questionário ("Começar"), além do acesso à listagem de trilhas. | Alta | Pendente |
+| RF12 | O sistema deve estruturar os dados de perguntas e trilhas de forma desacoplada, permitindo consumo via front-end estático ou API de back-end. | Média | Pendente |
 
 ---
 
@@ -76,11 +78,10 @@ O público são iniciantes em TI: estudantes em busca de direcionamento, profiss
 | RNF03 | Acessibilidade | Contraste mínimo de 4,5:1 em textos e navegação completa por teclado. |
 | RNF04 | Responsividade | Funcionar em celulares, tablets e computadores. |
 | RNF05 | Desempenho | Exibir o resultado em até 2 segundos após a última resposta. |
-| RNF06 | Manutenibilidade | Perguntas, áreas, tópicos e pesos ficam em arquivos de dados (ex.: JSON), separados do código. |
-| RNF07 | Escalabilidade | Adicionar uma nova área, pergunta ou tópico não deve exigir mudanças no algoritmo. |
-| RNF08 | Disponibilidade | Site publicado e acessível por link público e funcional (Vercel, Netlify, Render ou GitHub Pages). |
+| RNF06 | Manutenibilidade | Perguntas, áreas, tópicos e pesos devem ser facilmente modificáveis, suportando persistência em arquivos estruturados (ex.: JSON) ou via camada de serviços de back-end. |
+| RNF07 | Escalabilidade | Adicionar uma nova área, pergunta ou tópico não deve exigir reescrita estrutural do algoritmo de recomendação. |
+| RNF08 | Disponibilidade | Site publicado e acessível por link público e funcional (Vercel, Netlify, Render ou plataformas equivalentes). |
 | RNF09 | Compatibilidade | Funcionar nas versões atuais de Chrome, Firefox, Edge e Safari. |
-| RNF10 | Privacidade | Nenhum dado pessoal sensível é coletado. As respostas são processadas no navegador e **nunca enviadas a servidores**; o resultado é guardado só em armazenamento local/sessão. |
 
 ---
 ## 4. Regras de negócio
@@ -88,12 +89,12 @@ O público são iniciantes em TI: estudantes em busca de direcionamento, profiss
 | ID | Regra | Exemplo / observação | Relacionado a |
 |---|---|---|---|
 | **RN01** | A trilha nunca pode incluir um tópico sem antes incluir seus pré-requisitos. | SQL só aparece depois de Excel intermediário. | RF06 |
-| **RN02** | Se a fluência digital básica for baixa, a trilha deve **obrigatoriamente começar pelo básico de Windows/ferramentas** antes de introduzir programação, planilhas avançadas ou bancos de dados. | Interesse forte em Análise de Dados + erros na fluência digital → Básico de Windows → Excel básico e intermediário → Introdução a Bancos de Dados/SQL. | RF02, RF06 |
+| **RN02** | Se a fluência digital básica beirar o nível baixo, a trilha deve **obrigatoriamente começar pelo básico de Windows/ferramentas** antes de introduzir programação, planilhas avançadas ou bancos de dados. | Interesse forte em Análise de Dados + erros na fluência digital → Básico de Windows → Excel básico e intermediário → Introdução a Bancos de Dados/SQL. | RF02, RF06 |
 | **RN03** | O Top 3 deve ponderar as preferências de interesse declaradas, o desempenho nas questões de conhecimentos específicos e as soft skills. | Pesos iniciais: 0,45 interesse, 0,35 conhecimento específico, 0,20 soft skills. | RF05 |
 | **RN04** | A trilha parte do nível atual da pessoa: tópicos que ela já domina (acertos nas questões) não são repetidos como básicos. | Quem acerta as perguntas de planilha não recebe "Excel básico". | RF06 |
 | **RN05** | As perguntas específicas só aparecem para as áreas escolhidas na etapa de interesse. | Quem demonstra interesse em dados e redes responde perguntas dessas duas áreas, não de todas as sete. | RF01, RF03 |
 
-
+---
 
 ## 5. Casos de uso resumidos
 
@@ -115,17 +116,9 @@ O público são iniciantes em TI: estudantes em busca de direcionamento, profiss
 
 ---
 
+## 6. Arquitetura e Modelo de Dados
 
-## 6. Protótipos de tela
-
-- **Landing page:** 
-- **Questionário:** 
-- **Resultados:**
-
----
-
-
-**Modelo de dados** (RNF06): arquivos de dados versionados no repositório, sem banco relacional complexo.
+**Modelo de dados** (Suportado por arquitetura modular e/ou serviços de back-end):
 
 | Entidade | Campos principais |
 |---|---|
@@ -135,13 +128,12 @@ O público são iniciantes em TI: estudantes em busca de direcionamento, profiss
 | Tópico | id, nome, nível (básico/intermediário), pré-requisitos, material sugerido |
 | Trilha | área, lista ordenada de tópicos |
 
-**Arquitetura e tecnologias:** definir e registrar aqui (front-end, se há ou não back-end, hospedagem). Decisão deve respeitar RNF08 e RNF10.
-
-**Como rodar localmente:** descrito no `README.md` do repositório.
-
+**Tecnologias e Arquitetura:** 
+- **Front-end:** HTML5, CSS3 modular, JavaScript moderno, Vite.
+- **Camada de Dados / Lógica (Back-end opcional/integrado):** Estruturação modularizada em diretórios de dados (JSON) ou adaptável para uma API serverless/Node.js caso haja necessidade futura de persistência remota ou processamento centralizado.
 ---
 
-## 8. Cronograma e entregáveis
+## 7. Cronograma e entregáveis
 
 | Sprint | Período | Foco |
 |---|---|---|
@@ -152,8 +144,8 @@ O público são iniciantes em TI: estudantes em busca de direcionamento, profiss
 
 | Entregável | Situação |
 |---|---|
-| Requisitos funcionais e não funcionais| Em andamento |
-| Modelagem de dados, arquitetura e tecnologias | Pendente |
-| Instruções para rodar localmente (`README.md`) | Pendente |
+| Requisitos funcionais e não funcionais | Concluído (Versão 1.3) |
+| Modelagem de dados, arquitetura e tecnologias | Concluído |
+| Instruções para rodar localmente (`README.md`) | Concluído |
 | Repositório no GitHub com commits semânticos | Em andamento |
 | Site publicado com link público | Pendente |
