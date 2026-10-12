@@ -1,0 +1,13 @@
+:root {
+  color-scheme: light;
+  --navy: #1b324f;
+  --steel: #36586a;
+  --sky: #99bfd5;
+  --sand: #eccca6;
+  --coral: #e95c6c;
+  --peach: #f7a088;
+  --ink: #0b131f;       /* Letra principal bem escura e nítida */
+  --muted: #2d3b4e;     /* Texto secundário mais escuro para excelente leitura */
+  --grid: #d5e1ef;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}

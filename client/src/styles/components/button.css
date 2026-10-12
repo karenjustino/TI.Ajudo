@@ -1,0 +1,25 @@
+.btn {
+  background: var(--coral);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 14px 28px;
+  font-size: .9rem;
+  border-radius: 16px;
+  box-shadow: 0 5px 0 var(--navy);
+  transition: transform .15s, box-shadow .15s;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--navy);
+}
+
+.ghost {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--steel);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

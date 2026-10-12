@@ -1,0 +1,1 @@
+console.log("Front-end do TI.Ajudo a funcionar com Vite!");

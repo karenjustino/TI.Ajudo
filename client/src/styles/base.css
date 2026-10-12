@@ -1,0 +1,32 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--mono);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: #FFFFFF;
+  background-image: 
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #fff;
+}

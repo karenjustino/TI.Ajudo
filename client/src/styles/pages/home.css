@@ -1,0 +1,150 @@
+.hero {
+  padding: 64px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  background: var(--sky);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 5px 16px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.25;
+  margin: 16px 0 24px 0; /* Espaçamento ajustado para afastar do badge */
+  color: var(--navy);
+}
+
+h1 em {
+  font-style: normal;
+  background: var(--sand);
+  padding: 0 .2em;
+  border-radius: 12px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hero p {
+  max-width: 46ch;
+  margin: 0 0 28px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-items: center;
+}
+
+.shot {
+  background: var(--sky);
+  border-radius: 28px;
+  padding: 16px;
+  box-shadow: 0 20px 40px rgba(39, 69, 108, .28);
+}
+
+.shot svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.eyebrow {
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--steel);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  margin: 0 0 12px;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.lead {
+  max-width: 60ch;
+  margin: 0 0 36px;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--navy);
+  color: #fff;
+  padding: 44px;
+  border-radius: 36px;
+  box-shadow: 0 20px 40px rgba(39, 69, 108, .35);
+}
+
+.panel .eyebrow {
+  color: var(--sky);
+}
+
+.panel h2 {
+  max-width: 22ch;
+  color: var(--sand);
+}
+
+.panel p.t {
+  max-width: 68ch;
+  margin: 0 0 28px;
+}
+
+.panel p.t a {
+  font-weight: 700;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.cols div {
+  border-radius: 22px;
+  padding: 18px 22px;
+  background: var(--sky);
+  color: var(--ink);
+}
+
+.cols div:nth-child(2) {
+  background: var(--sand);
+}
+
+.cols div:nth-child(3) {
+  background: var(--peach);
+}
+
+.cols h3 {
+  font-size: .95rem;
+  margin: 0 0 6px;
+}
+
+.cols p {
+  margin: 0;
+  font-size: .85rem;
+}
+
+@media(max-width: 760px) {
+  .hero .wrap, .cols { grid-template-columns: 1fr; }
+  .panel { padding: 28px 20px; border-radius: 28px; }
+}

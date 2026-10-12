@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+dist/
+dist-ssr/
+
+# Logs de execução
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Variáveis de ambiente e dados locais
+.env
+.env.local
+
+# Ficheiros do sistema operativo
+.DS_Store
+Thumbs.db
+.vscode/

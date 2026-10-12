@@ -1,0 +1,59 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  background: var(--c);
+  color: var(--f, var(--ink));
+  padding: 24px 28px;
+  height: 100%;
+  border-radius: 28px;
+  box-shadow: 0 10px 22px rgba(39, 69, 108, .22);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px rgba(39, 69, 108, .3);
+}
+
+.grid li:nth-child(1) .card { --c: var(--navy); --f: #fff; }
+.grid li:nth-child(2) .card { --c: var(--steel); --f: #fff; }
+.grid li:nth-child(3) .card { --c: var(--sky); }
+.grid li:nth-child(4) .card { --c: var(--sand); }
+.grid li:nth-child(5) .card { --c: var(--coral); }
+.grid li:nth-child(6) .card { --c: var(--peach); }
+.grid li:nth-child(7) .card { --c: var(--navy); --f: #fff; }
+
+.card small { font-size: .75rem; font-weight: 700; }
+.card h3 { margin: 6px 0 6px; font-size: 1.05rem; }
+.card p { margin: 0 0 14px; font-size: .85rem; }
+
+.dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+}
+
+.dots i.on {
+  background: currentColor;
+}
+
+.grid li:last-child {
+  grid-column: 1 / -1;
+}
+
+@media(max-width: 760px) {
+  .grid { grid-template-columns: 1fr; }
+}
