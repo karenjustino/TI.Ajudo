@@ -9,6 +9,9 @@
   box-shadow: 0 5px 0 var(--navy);
   transition: transform .15s, box-shadow .15s;
   display: inline-block;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--mono);
 }
 
 .btn:hover {
