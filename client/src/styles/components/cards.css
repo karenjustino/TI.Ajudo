@@ -1,59 +1,32 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* components/cards.css — .trail-card */
+
+.trail-card {
+  width: 100%;
+  color: inherit; text-decoration: none;
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 18px; padding: 22px;
+  transition: border-color .15s, transform .15s;
 }
+.trail-card:hover { border-color: var(--brand); }
+.trail-card--assist:hover { transform: translateY(-3px); }
 
-.card {
-  background: var(--c);
-  color: var(--f, var(--ink));
-  padding: 24px 28px;
-  height: 100%;
-  border-radius: 28px;
-  box-shadow: 0 10px 22px rgba(39, 69, 108, .22);
-  transition: transform .15s, box-shadow .15s;
+.trail-card__icon {
+  display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--soft); color: var(--ink);
+  font: 700 .95rem var(--mono);
 }
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 28px rgba(39, 69, 108, .3);
+.trail-card__title { font-size: 1.05rem; }
+.trail-card__desc { margin: 0; font-size: .92rem; opacity: .85; }
+.trail-card__level {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px;
+  margin-top: auto; padding-top: 8px;   /* encosta a dificuldade no rodapé do card */
 }
+.trail-card__dots { letter-spacing: 3px; font-size: .8rem; color: var(--ink); }
+.trail-card__level-text { font-size: .85rem; font-weight: 500; color: var(--ink); }
+.trail-card__go { margin-top: auto; padding-top: 8px; font-weight: 600; font-size: .9rem; }
 
-.grid li:nth-child(1) .card { --c: var(--navy); --f: #fff; }
-.grid li:nth-child(2) .card { --c: var(--steel); --f: #fff; }
-.grid li:nth-child(3) .card { --c: var(--sky); }
-.grid li:nth-child(4) .card { --c: var(--sand); }
-.grid li:nth-child(5) .card { --c: var(--coral); }
-.grid li:nth-child(6) .card { --c: var(--peach); }
-.grid li:nth-child(7) .card { --c: var(--navy); --f: #fff; }
-
-.card small { font-size: .75rem; font-weight: 700; }
-.card h3 { margin: 6px 0 6px; font-size: 1.05rem; }
-.card p { margin: 0 0 14px; font-size: .85rem; }
-
-.dots {
-  display: flex;
-  gap: 5px;
-}
-
-.dots i {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 2px solid currentColor;
-}
-
-.dots i.on {
-  background: currentColor;
-}
-
-.grid li:last-child {
-  grid-column: 1 / -1;
-}
-
-@media(max-width: 760px) {
-  .grid { grid-template-columns: 1fr; }
-}
+.trail-card--assist { background: var(--coral); color: #fff; border-color: var(--coral); }
+.trail-card--assist .trail-card__icon { background: rgba(255, 255, 255, .2); color: #fff; }

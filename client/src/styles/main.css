@@ -1,6 +1,9 @@
 @import "./tokens.css";
 @import "./base.css";
 @import "./layout.css";
+
 @import "./components/button.css";
 @import "./components/cards.css";
-@import "./pages/home.css";@import "./pages/advisor.css";
+
+@import "./pages/home.css";
+@import "./pages/advisor.css";

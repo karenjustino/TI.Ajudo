@@ -1,119 +1,202 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="color-scheme" content="light">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>TI.Ajudo — ache seu caminho em tecnologia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<!-- Importa o seu CSS modular via Vite -->
-<link rel="stylesheet" href="./src/styles/main.css">
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TI.Ajudo — ache seu caminho em tecnologia</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 <body>
-<a class="skip" href="#trilhas">Ir para o conteúdo</a>
-<header>
-  <div class="wrap">
-    <a class="logo" href="#">TI<b>.</b>Ajudo</a>
-    <nav aria-label="Principal">
-      <a href="./assistente.html">Orientador</a>
-      <a href="#trilhas">Trilhas</a>
-      <a href="#sobre">Sobre</a>
-    </nav>
-  </div>
-</header>
+  <a class="skip-link" href="#trilhas">Ir para o conteúdo</a>
 
-<main>
-<div class="hero">
-  <div class="wrap">
-    <div>
-      <span class="badge">Comece do zero, no seu ritmo.</span>
-      <h1>TI.Ajudo a achar seu <em>caminho</em> em tecnologia.</h1>
-      <p>Você não precisa saber tudo agora. Descubra o que aprender, por onde começar e avance no seu ritmo.</p>
-      <div class="actions">
-        <a class="btn" href="./assistente.html">  Descobrir meu caminho </a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="#topo">TI.Ajudo</a>
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="#orientador">Orientador</a>
+        <a class="nav__link" href="#trilhas">Trilhas</a>
+        <a class="nav__link" href="#sobre">Sobre</a>
+      </nav>
+    </div>
+  </header>
 
-        <a class="ghost" href="#sobre">O que é o TI.Ajudo?</a>
+  <main id="topo">
+    <section class="hero">
+      <div class="container hero__inner">
+        
+        <!-- Coluna de Texto -->
+        <div class="hero__content">
+          <span class="badge">Comece do zero, no seu ritmo.</span>
+          <h1 class="hero__title">Descubra seu caminho em tecnologia</h1>
+          <p class="hero__lead">Você não precisa saber tudo agora. Converse com o assistente, escolha uma trilha e descubra por onde começar a estudar.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="./assistente.html">Descobrir meu caminho</a>
+            <a class="link" href="#sobre">O que é o TI.Ajudo?</a>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__panel">
+            <img class="hero__img" src="./src/assets/img/hero-estudo.png" width="1100" height="598" alt="Notebook, livros, caderno e café sobre a mesa de estudos">
+          </div>
+        </div>
+        
       </div>
-    </div>
-    <div class="shot" aria-hidden="true">
-      <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-        <rect x="40" y="20" width="320" height="180" rx="6" fill="#14243A" stroke="#99bfd5" stroke-width="2"/>
-        <rect x="40" y="20" width="320" height="22" rx="6" fill="#27456c"/>
-        <circle cx="56" cy="31" r="4" fill="#eccca6"/><circle cx="70" cy="31" r="4" fill="#99bfd5"/><circle cx="84" cy="31" r="4" fill="#FFFFFF"/>
-        <g font-family="monospace" font-size="12" font-weight="500">
-          <text x="58" y="68" fill="#7dd3fc">const</text><text x="102" y="68" fill="#FFFFFF">caminho = {</text>
-          <text x="74" y="90" fill="#fde047">trilha:</text><text x="124" y="90" fill="#FFFFFF">"dev",</text>
-          <text x="74" y="112" fill="#fde047">ritmo:</text><text x="118" y="112" fill="#FFFFFF">"seu",</text>
-          <text x="74" y="134" fill="#fca5a5">pressa:</text><text x="130" y="134" fill="#FFFFFF">false</text>
-          <text x="58" y="156" fill="#FFFFFF">};</text>
-          <text x="58" y="180" fill="#7dd3fc">&gt; começar()</text>
-        </g>
-        <rect x="170" y="200" width="60" height="22" fill="#99bfd5"/>
-        <rect x="130" y="222" width="140" height="8" rx="3" fill="#99bfd5"/>
-      </svg>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- Novo Orientador-->
-<section id="orientador" class="advisor-section">
-  <div class="wrap">
-    <p class="eyebrow">Seu próximo passo começa aqui</p>
-    <h2>Não sabe qual área da TI combina com você?</h2>
-    <p class="lead">
-      Converse com o assistente TI.Ajudo, descubra possibilidades
-      profissionais e receba sugestões de estudos de acordo com
-      seu nível de conhecimento.
-    </p>
-    <div class="actions">
-      <a href="./assistente.html" class="btn">
-        Conversar com o assistente
-      </a>
-    </div>
-  </div>
-</section>
 
-<section id="trilhas">
-  <div class="wrap">
-    <p class="eyebrow">Trilhas</p>
-    <h2>Escolha por onde entrar</h2>
-    <p class="lead">Sete trilhas essenciais para quem está começando em TI: sem pressão, com curiosidade e no seu ritmo.</p>
-    <ul class="grid">
-      <li><article class="card"><small>01</small><h3>Desenvolvimento</h3><p>Crie sistemas, sites e aplicações.</p><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></article></li>
-      <li><article class="card"><small>02</small><h3>Dados &amp; Analytics</h3><p>Transforme dados em informações úteis.</p><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></article></li>
-      <li><article class="card"><small>03</small><h3>Cibersegurança</h3><p>Proteja sistemas, redes e dados.</p><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></article></li>
-      <li><article class="card"><small>04</small><h3>Redes &amp; Infraestrutura</h3><p>Conecte e mantenha ambientes tecnológicos.</p><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></article></li>
-      <li><article class="card"><small>05</small><h3>Gestão &amp; Governança</h3><p>Organize tecnologia, riscos e processos.</p><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></article></li>
-      <li><article class="card"><small>06</small><h3>Produto &amp; Experiência</h3><p>Crie soluções pensando nas pessoas.</p><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></article></li>
-      <li><article class="card"><small>07</small><h3>Cloud &amp; DevOps</h3><p>Escale e automatize.</p><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></article></li>
-    </ul>
-  </div>
-</section>
+    <section class="section section--alt" id="orientador">
+      <div class="container">
+        <h2 class="section__title">Não sabe qual área da TI combina com você?</h2>
+        <p class="section__sub">Responda algumas perguntas ao assistente, descubra possibilidades profissionais e receba sugestões de estudo para o seu nível de conhecimento.</p>
 
-<section id="sobre">
-  <div class="wrap">
-    <div class="panel">
-      <p class="eyebrow">sobre o projeto</p>
-      <h2>TI.Ajudo existe porque começar sozinho é a parte mais difícil.</h2>
-      <p class="t">Reunimos caminhos de estudo, referências confiáveis e próximos passos claros para quem quer entrar na área de tecnologia, seja qual for o ponto de partida. <a href="#trilhas">Veja as trilhas disponíveis</a> e escolha a que combina com você.</p>
-      <div class="cols">
-        <div><h3>com companhia</h3><p>Cada trilha mostra o progresso, não só o destino final.</p></div>
-        <div><h3>no seu tempo</h3><p>Sem prazo, sem cobrança. Avance quando e como puder.</p></div>
-        <div><h3>em direção clara</h3><p>Cada etapa responde: o que estudar agora e por quê.</p></div>
+        <ol class="steps">
+          <li class="steps__item">
+            <h3 class="steps__title">Converse</h3>
+            <p class="steps__text">Conte seus gostos e o que já sabe. Sem respostas certas ou erradas.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title">Receba sugestões</h3>
+            <p class="steps__text">O assistente indica as trilhas mais próximas do seu perfil.</p>
+          </li>
+          <li class="steps__item">
+            <h3 class="steps__title">Comece a estudar</h3>
+            <p class="steps__text">Receba próximos passos claros e avance no seu ritmo.</p>
+          </li>
+        </ol>
+
+        <div class="section__actions">
+          <a class="btn btn--primary" href="./assistente.html">Conversar com o assistente</a>
+        </div>
       </div>
+    </section>
+
+    
+    <section class="section" id="trilhas">
+      <div class="container">
+        <h2 class="section__title">Escolha por onde entrar</h2>
+        <p class="section__sub">Sete trilhas essenciais para quem está começando em TI: sem pressão, com curiosidade e no seu ritmo.</p>
+        
+        <ul class="trail-grid">
+          <li class="trail-grid__item">
+            <a class="trail-card" href="./roadmap.html?trilha=dev">
+              <span class="trail-card__icon" aria-hidden="true">&lt;/&gt;</span>
+              <h3 class="trail-card__title">Desenvolvimento</h3>
+              <p class="trail-card__desc">Crie sistemas, sites e aplicações.</p>
+              <div class="trail-card__level">
+                <span class="trail-card__dots" aria-hidden="true">●●●○○</span>
+                <span class="trail-card__level-text">Dificuldade: Moderada<span class="visually-hidden"> (3 de 5)</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="trail-grid__item">
+            <a class="trail-card" href="./roadmap.html?trilha=dados">
+              <span class="trail-card__icon" aria-hidden="true">SQL</span>
+              <h3 class="trail-card__title">Dados &amp; Analytics</h3>
+              <p class="trail-card__desc">Transforme dados em informações úteis.</p>
+              <div class="trail-card__level">
+                <span class="trail-card__dots" aria-hidden="true">●●○○○</span>
+                <span class="trail-card__level-text">Dificuldade: Acessível<span class="visually-hidden"> (2 de 5)</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="trail-grid__item">
+            <a class="trail-card" href="./roadmap.html?trilha=ciber">
+              <span class="trail-card__icon" aria-hidden="true">{ }</span>
+              <h3 class="trail-card__title">Cibersegurança</h3>
+              <p class="trail-card__desc">Proteja sistemas, redes e dados.</p>
+              <div class="trail-card__level">
+                <span class="trail-card__dots" aria-hidden="true">●●●●○</span>
+                <span class="trail-card__level-text">Dificuldade: Exigente<span class="visually-hidden"> (4 de 5)</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="trail-grid__item">
+            <a class="trail-card" href="./roadmap.html?trilha=redes">
+              <span class="trail-card__icon" aria-hidden="true">IP</span>
+              <h3 class="trail-card__title">Redes &amp; Infraestrutura</h3>
+              <p class="trail-card__desc">Conecte e mantenha ambientes tecnológicos.</p>
+              <div class="trail-card__level">
+                <span class="trail-card__dots" aria-hidden="true">●●●○○</span>
+                <span class="trail-card__level-text">Dificuldade: Moderada<span class="visually-hidden"> (3 de 5)</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="trail-grid__item">
+            <a class="trail-card" href="./roadmap.html?trilha=gestao">
+              <span class="trail-card__icon" aria-hidden="true">GP</span>
+              <h3 class="trail-card__title">Gestão &amp; Governança</h3>
+              <p class="trail-card__desc">Organize tecnologia, riscos e processos.</p>
+              <div class="trail-card__level">
+                <span class="trail-card__dots" aria-hidden="true">●●○○○</span>
+                <span class="trail-card__level-text">Dificuldade: Acessível<span class="visually-hidden"> (2 de 5)</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="trail-grid__item">
+            <a class="trail-card" href="./roadmap.html?trilha=ux">
+              <span class="trail-card__icon" aria-hidden="true">UX</span>
+              <h3 class="trail-card__title">Produto &amp; Experiência</h3>
+              <p class="trail-card__desc">Crie soluções pensando nas pessoas.</p>
+              <div class="trail-card__level">
+                <span class="trail-card__dots" aria-hidden="true">●●○○○</span>
+                <span class="trail-card__level-text">Dificuldade: Acessível<span class="visually-hidden"> (2 de 5)</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="trail-grid__item">
+            <a class="trail-card" href="./roadmap.html?trilha=cloud">
+              <span class="trail-card__icon" aria-hidden="true">☁</span>
+              <h3 class="trail-card__title">Cloud &amp; DevOps</h3>
+              <p class="trail-card__desc">Escale e automatize.</p>
+              <div class="trail-card__level">
+                <span class="trail-card__dots" aria-hidden="true">●●●●○</span>
+                <span class="trail-card__level-text">Dificuldade: Exigente<span class="visually-hidden"> (4 de 5)</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="trail-grid__item">
+            <a class="trail-card trail-card--assist" href="./assistente.html">
+              <span class="trail-card__icon" aria-hidden="true">?</span>
+              <h3 class="trail-card__title">Ainda em dúvida?</h3>
+              <p class="trail-card__desc">O assistente ajuda você a escolher a trilha.</p>
+              <span class="trail-card__go">Conversar com o assistente</span>
+            </a>
+          </li>
+        </ul>
+        <p class="legend">Os círculos indicam a dificuldade para começar na área, de 1 (mais acessível) a 5 (mais exigente).</p>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container about">
+        <div class="about__col">
+          <h2 class="section__title">Sobre o projeto</h2>
+          <p class="about__text">O TI.Ajudo é um projeto de conclusão de curso que ajuda iniciantes a entender as áreas da tecnologia e a planejar os primeiros estudos, sem pressão e sem exigir conhecimento prévio.</p>
+        </div>
+        <div class="about__col">
+          <h3 class="about__subtitle">Para quem é</h3>
+          <p class="about__text">Pessoas que querem entrar em TI e não sabem por onde começar, incluindo estudantes, quem está em transição de carreira e quem nunca programou.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div><strong class="site-footer__brand">TI.Ajudo</strong><br>Trabalho de Conclusão de Curso, 2026</div>
+      <div>[Curso] · [Instituição]<br>Orientação: [Nome do orientador]</div>
     </div>
-  </div>
-</section>
-</main>
+  </footer>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 TI.Ajudo</span>
-    <span>Feito para quem está começando — e para quem quer evoluir.</span>
-  </div>
-</footer>
-
-<script type="module" src="./src/js/main.js"></script>
+  <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

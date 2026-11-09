@@ -1,27 +1,81 @@
-export const questions = [
-  { id:'level', stage:'Conhecendo você', text:'Como você considera seu conhecimento atual em tecnologia?', hint:'Não existe resposta certa. Queremos entender seu ponto de partida.', options:['Sou completamente iniciante.','Conheço algumas coisas básicas.','Tenho conhecimentos intermediários.','Tenho bastante conhecimento e experiência.'] },
-  { id:'study', stage:'Conhecendo você', text:'Você já estudou alguma área de TI?', options:['Nunca estudei.','Já fiz alguns cursos.','Estudo por conta própria.','Estou estudando em uma instituição.','Já trabalho na área.'] },
-  { id:'programming', stage:'Conhecimentos técnicos', text:'Qual é sua experiência com programação?', options:['Nunca programei.','Já ouvi falar, mas não sei programar.','Conheço o básico.','Já desenvolvi alguns projetos.','Tenho experiência com programação.'] },
-  { id:'web', stage:'Conhecimentos técnicos', text:'Como está seu conhecimento em HTML e CSS?', options:['Não conheço.','Já ouvi falar.','Sei o básico.','Consigo desenvolver páginas.','Tenho domínio desses conhecimentos.'] },
-  { id:'languages', stage:'Conhecimentos técnicos', text:'Quais linguagens você já conhece?', multi:true, options:['Ainda não conheço nenhuma.','Python','JavaScript','Java','C ou C++','PHP','C#','Outra linguagem'] },
-  { id:'database', stage:'Conhecimentos técnicos', text:'Qual é sua experiência com banco de dados?', options:['Não sei o que é.','Já ouvi falar.','Sei para que serve.','Já utilizei bancos de dados.','Sei criar consultas e estruturar bancos.'] },
-  { id:'networks', stage:'Conhecimentos técnicos', text:'Como você avalia seu conhecimento em redes e infraestrutura?', options:['Não conheço.','Conheço conceitos básicos.','Sei configurar algumas coisas.','Tenho experiência prática.','Tenho conhecimentos avançados.'] },
-  { id:'tools', stage:'Conhecimentos técnicos', text:'Quais ferramentas você já utilizou?', multi:true, options:['Nunca utilizei.','Linux','Git e GitHub','Docker','Terminal / linha de comando','AWS, Azure ou Google Cloud','Ferramentas de monitoramento'] },
-  { id:'interest', stage:'Descobrindo interesses', text:'Quais atividades mais despertam seu interesse?', multi:true, options:['Criar sites e aplicativos.','Trabalhar com inteligência artificial.','Analisar dados e informações.','Proteger sistemas contra ataques.','Trabalhar com redes e computadores.','Administrar servidores e nuvem.','Criar experiências e interfaces visuais.','Organizar projetos de tecnologia.','Testar sistemas e encontrar erros.','Ainda não sei qual área escolher.'] },
-  { id:'workstyle', stage:'Descobrindo interesses', text:'Você prefere trabalhar com:', multi:true, options:['Programação e desenvolvimento.','Equipamentos e infraestrutura.','Segurança e investigação.','Dados e análise.','Criatividade e design.','Organização e gestão.','Qualidade, testes e validação.','Ainda não tenho preferência.'] },
-  { id:'goal', stage:'Objetivos profissionais', text:'Qual é seu principal objetivo?', options:['Conseguir meu primeiro emprego em TI.','Conseguir meu primeiro estágio.','Mudar de carreira.','Aprender tecnologia por interesse pessoal.','Melhorar meus conhecimentos.','Me especializar em uma área.'] },
-  { id:'time', stage:'Objetivos profissionais', text:'Quanto tempo você consegue dedicar aos estudos?', options:['Menos de 30 minutos por dia.','Entre 30 minutos e 1 hora.','Entre 1 e 2 horas.','Mais de 2 horas.','Apenas nos finais de semana.'] }
+/* data/questions.js — perguntas do assistente e textos de apoio.
+   Cada opção tem `weights`: { índiceDaTrilha: pontos } (ver data/catalog.js).
+   Opção sem `weights` não influencia o perfil (ex.: "Ainda não sei"). */
+
+const NOT_SURE = { label: "Ainda não sei, e tudo bem." };
+
+export const QUESTIONS = [
+  {
+    text: "Como você considera seu conhecimento atual em tecnologia?",
+    hint: "Não existe resposta certa. Só queremos entender seu ponto de partida.",
+    options: [
+      { label: "Sou completamente iniciante." },
+      { label: "Conheço algumas coisas básicas." },
+      { label: "Tenho conhecimentos intermediários." },
+      { label: "Tenho bastante conhecimento e experiência." },
+    ],
+  },
+  {
+    text: "O que mais chama sua atenção?",
+    hint: "Escolha a que estiver mais perto, mesmo que não seja perfeita.",
+    options: [
+      { label: "Criar sites, apps e sistemas.", weights: { 0: 3, 5: 1 } },
+      { label: "Descobrir padrões nos números.", weights: { 1: 3 } },
+      { label: "Proteger e investigar sistemas.", weights: { 2: 3, 3: 1 } },
+      { label: "Montar e manter redes e servidores.", weights: { 3: 3, 6: 1, 2: 1 } },
+      NOT_SURE,
+    ],
+  },
+  {
+    text: "Como você prefere trabalhar?",
+    options: [
+      { label: "Sozinho, concentrado em problemas técnicos.", weights: { 0: 1, 1: 1, 2: 1 } },
+      { label: "Em equipe, organizando o que cada um faz.", weights: { 4: 3, 5: 1 } },
+      { label: "Conversando com pessoas e entendendo suas necessidades.", weights: { 5: 3, 4: 1 } },
+      { label: "Automatizando tarefas repetitivas.", weights: { 6: 3, 0: 1 } },
+      NOT_SURE,
+    ],
+  },
+  {
+    text: "Qual atividade soa mais interessante?",
+    options: [
+      { label: "Desenhar uma tela mais fácil de usar.", weights: { 5: 3 } },
+      { label: "Escrever código que resolve um problema.", weights: { 0: 3, 6: 1 } },
+      { label: "Montar um relatório com gráficos.", weights: { 1: 3, 4: 1 } },
+      { label: "Planejar prazos, riscos e entregas.", weights: { 4: 3 } },
+      NOT_SURE,
+    ],
+  },
+  {
+    text: "Como é sua relação com matemática e lógica?",
+    options: [
+      { label: "Gosto bastante.", weights: { 1: 2, 0: 1, 2: 1 } },
+      { label: "Me viro bem.", weights: { 0: 1, 3: 1, 6: 1 } },
+      { label: "Prefiro áreas criativas ou de pessoas.", weights: { 5: 2, 4: 1 } },
+      { label: "Não sei dizer." },
+    ],
+  },
+  {
+    text: "Quanto tempo você tem por semana para estudar?",
+    hint: "Vale o que for realista para a sua rotina. Constância importa mais que quantidade.",
+    options: [
+      { label: "Cerca de 2 horas." },
+      { label: "Cerca de 5 horas." },
+      { label: "10 horas ou mais." },
+    ],
+  },
 ];
 
-// Testes curtos por assunto. São perguntas conceituais iniciais, não certificações.
-export const quizzes = {
-  programming:[{q:'O que é uma variável em programação?',a:['Um espaço identificado para armazenar um valor','Um erro do sistema','Um tipo de computador'],correct:0,why:'Variáveis armazenam valores que podem ser utilizados e alterados durante a execução.'},{q:'Para que serve uma estrutura condicional?',a:['Repetir sempre o mesmo bloco','Executar caminhos diferentes conforme uma condição','Armazenar imagens'],correct:1,why:'Uma condição permite que o programa escolha o que fazer conforme uma expressão.'}],
-  web:[{q:'Qual é a principal função do HTML?',a:['Definir a estrutura do conteúdo','Criar o banco de dados','Configurar a rede'],correct:0,why:'HTML organiza semanticamente os elementos de uma página.'},{q:'Para que usamos CSS?',a:['Controlar consultas SQL','Estilizar e organizar visualmente a página','Executar comandos no servidor'],correct:1,why:'CSS controla apresentação, cores, espaçamentos e layout.'}],
-  database:[{q:'O que é uma chave primária?',a:['Uma senha do usuário','Um campo que identifica unicamente cada registro','Um backup'],correct:1,why:'A chave primária identifica cada linha de uma tabela.'},{q:'Qual comando SQL consulta dados?',a:['SELECT','DELETE','FORMAT'],correct:0,why:'SELECT recupera dados de uma ou mais tabelas.'}],
-  networks:[{q:'Qual é a função de um endereço IP?',a:['Identificar um dispositivo em uma rede','Formatar um disco','Criptografar arquivos'],correct:0,why:'O endereço IP identifica uma interface/dispositivo para comunicação em redes IP.'},{q:'Para que serve o DNS?',a:['Traduzir nomes de domínio em endereços IP','Aumentar memória RAM','Criar páginas HTML'],correct:0,why:'O DNS resolve nomes como exemplo.com para endereços IP.'}],
-  tools:[{q:'Qual é a finalidade principal do Git?',a:['Editar imagens','Controlar versões de arquivos e código','Hospedar bancos de dados'],correct:1,why:'Git registra alterações e permite acompanhar e colaborar no desenvolvimento.'},{q:'O Linux é:',a:['Um sistema operacional','Uma linguagem de marcação','Um banco de dados'],correct:0,why:'Linux é uma família de sistemas operacionais.'}],
-  security:[{q:'O que é autenticação em dois fatores?',a:['Usar duas senhas iguais','Adicionar uma segunda etapa de verificação','Compartilhar a senha'],correct:1,why:'O segundo fator adiciona uma camada de confirmação de identidade.'},{q:'Você recebeu um e-mail inesperado pedindo sua senha. O que deve fazer?',a:['Responder com a senha','Clicar no link para confirmar','Não informar credenciais e verificar o remetente por um canal confiável'],correct:2,why:'Mensagens inesperadas podem ser phishing. Nunca compartilhe sua senha e verifique a origem.'}],
-  data:[{q:'Qual é o objetivo da análise de dados?',a:['Transformar dados em informações úteis para decisões','Substituir todos os sistemas','Criar cabos de rede'],correct:0,why:'A análise busca padrões, tendências e evidências para apoiar decisões.'},{q:'Em uma planilha, para que serve um filtro?',a:['Apagar todas as linhas','Exibir registros que atendem a critérios','Criptografar o arquivo'],correct:1,why:'Filtros ajudam a visualizar apenas os registros que atendem a condições.'}],
-  design:[{q:'O que significa UX?',a:['Experiência do usuário','Unidade externa','Execução universal'],correct:0,why:'UX considera a experiência completa das pessoas ao utilizar um produto.'},{q:'Por que testar um protótipo com usuários?',a:['Para validar se o fluxo é compreensível','Para evitar qualquer alteração futura','Para substituir a pesquisa'],correct:0,why:'Testes com usuários revelam dificuldades e oportunidades de melhoria.'}],
-  qa:[{q:'Qual é o objetivo de um teste de software?',a:['Encontrar evidências de defeitos e verificar requisitos','Garantir que nunca haverá erros','Apenas mudar as cores'],correct:0,why:'Testes ajudam a avaliar qualidade e identificar falhas.'},{q:'Ao encontrar um defeito, qual informação ajuda a equipe a reproduzi-lo?',a:['Apenas dizer que não funcionou','Passos para reproduzir, resultado esperado e resultado obtido','Somente o nome do computador'],correct:1,why:'Um relato claro e reproduzível facilita a investigação e correção do defeito.'}]
-};
+/* Frase de incentivo após responder a pergunta de mesmo índice (null = nenhuma). */
+export const FEEDBACK = [
+  "Obrigado por contar! Todo mundo começa de algum lugar.",
+  null,
+  "Boa! Isso já ajuda a afinar as sugestões.",
+  null,
+  "Quase lá, falta só uma!",
+];
+
+/* Índices seguem a ordem das opções das perguntas 1 (nível) e 6 (tempo). */
+export const LEVELS = ["Iniciante", "Básico", "Intermediário", "Avançado"];
+export const HOURS_PER_WEEK = [2, 5, 10];
+export const START_STEP = [0, 0, 1, 2]; // etapa inicial sugerida por nível

@@ -1,0 +1,207 @@
+/* pages/roadmap.css — .roadmap, .progress-bar, .next-step, .level, .check-item */
+
+.roadmap {
+  --accent: var(--blue); /* cor de destaque da página */
+
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 24px 20px 56px;
+}
+
+/* ---------- roadmap ---------- */
+
+.roadmap__back {
+  font-size: .9rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 4px;
+}
+
+.roadmap__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.roadmap__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--ink);
+  font: 700 1rem var(--mono);
+}
+
+.roadmap__title {
+  margin: 0;
+  color: var(--ink);
+  font: 700 1.6rem var(--mono);
+}
+
+.roadmap__level {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: .85rem;
+}
+
+.roadmap__dots {
+  font-size: .8rem;
+  letter-spacing: 3px;
+}
+
+.roadmap__summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.roadmap__empty {
+  color: var(--muted);
+}
+
+.roadmap__reset {
+  margin-top: 8px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+}
+
+.roadmap__reset:hover {
+  border-color: var(--brand);
+}
+
+/* ---------- progress-bar ---------- */
+
+.progress-bar {
+  height: 8px;
+  margin: 6px 0 22px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.progress-bar__fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width .3s;
+}
+
+/* ---------- next-step ---------- */
+
+.next-step {
+  margin-bottom: 24px;
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--accent);
+  color: var(--ink); /* texto escuro: contraste melhor sobre o azul */
+}
+
+.next-step__label {
+  margin: 0;
+  font-size: .8rem;
+}
+
+.next-step__title {
+  margin: 4px 0 14px;
+  font: 700 1.2rem var(--mono);
+}
+
+.next-step__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.next-step__link {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .5);
+  color: var(--ink);
+  font-size: .85rem;
+  text-decoration: none;
+}
+
+.next-step__link:hover {
+  background: rgba(255, 255, 255, .8);
+}
+
+/* ---------- level ---------- */
+
+.level {
+  margin-bottom: 16px;
+  padding: 18px 22px;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.level--current {
+  border-color: var(--accent);
+}
+
+.level--locked {
+  opacity: .55;
+}
+
+.level__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.level__title {
+  margin: 0;
+  color: var(--ink);
+  font: 700 1rem var(--mono);
+}
+
+.level__status {
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+/* ---------- check-item ---------- */
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.check-item__input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--accent);
+}
+
+.check-item__text {
+  color: var(--ink);
+}
+
+.check-item--done .check-item__text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.check-item--locked {
+  cursor: not-allowed;
+}

@@ -1,28 +1,37 @@
+/* components/button.css — .btn, .text-button e .link */
+
+/* ---------- Botão e link ---------- */
 .btn {
-  background: var(--coral);
-  color: var(--ink);
-  font-weight: 700;
-  text-decoration: none;
-  padding: 14px 28px;
-  font-size: .9rem;
-  border-radius: 16px;
-  box-shadow: 0 5px 0 var(--navy);
-  transition: transform .15s, box-shadow .15s;
   display: inline-block;
+  font: 600 .95rem var(--sans);
+  padding: 12px 22px;
   border: 0;
+  border-radius: 12px;
+  text-decoration: none;
   cursor: pointer;
-  font-family: var(--mono);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn--primary {
+  background: var(--coral);
+  color: #fff;
+  box-shadow: 0 4px 0 var(--brand);
+}
+.btn--primary:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--brand); }
+
+.btn--secondary {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1.5px solid var(--brand);
+}
+.btn--secondary:hover { background: var(--soft); }
+.btn--secondary:focus-within { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+/* botão com aparência de link (ex.: "Recomeçar", "Voltar") */
+.text-button {
+  background: none; border: 0; padding: 0;
+  color: inherit; font: 600 .9rem var(--sans);
+  text-decoration: underline; text-underline-offset: 3px;
+  cursor: pointer;
 }
 
-.btn:hover {
-  transform: translateY(3px);
-  box-shadow: 0 2px 0 var(--navy);
-}
-
-.ghost {
-  font-size: .85rem;
-  font-weight: 700;
-  color: var(--steel);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
+.link { font-weight: 500; text-underline-offset: 4px; }

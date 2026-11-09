@@ -1,95 +1,81 @@
-.wrap {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 24px;
-  position: relative;
+:root {
+  --container: 1080px;
+  --container-narrow: 860px;
+  --gutter: 24px;
+ 
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+ 
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+ 
+  --shadow-card: 0 20px 40px rgba(42, 38, 64, .12);
+  --transition: .15s ease;
+ 
+  --on-night: #fff;
+  --on-night-soft: #d6d0e8;
 }
-
-.skip {
-  position: absolute;
-  left: -999px;
-  top: 8px;
-  background: var(--sand);
-  color: var(--ink);
-  padding: 8px 12px;
-  z-index: 10;
+ 
+/* ---------- Container ---------- */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.container--narrow { max-width: var(--container-narrow); }
+ 
+/* ---------- Acessibilidade ---------- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
 }
-
-.skip:focus {
-  left: 8px;
+ 
+.skip-link {
+  position: absolute; left: var(--space-4); top: -100px; z-index: 20;
+  padding: 10px var(--space-4);
+  background: var(--coral); color: #fff; border-radius: 8px;
 }
-
-header {
-  position: sticky;
-  top: env(safe-area-inset-top, 0px);
-  z-index: 5;
-  background: #fff;
-  border-bottom: 2px solid var(--navy);
+.skip-link:focus { top: var(--space-3); }
+ 
+/* ---------- Header + Nav ---------- */
+.logo { font: 700 1.1rem var(--mono); text-decoration: none; }
+ 
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top, 0px);
 }
-
-header .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 64px;
+.site-header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-4); height: var(--header-h);
 }
-
-.logo {
-  font-weight: 700;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  color: var(--navy);
+ 
+.nav { display: flex; align-items: center; gap: var(--space-5); }
+.nav__link { font-size: .95rem; font-weight: 500; color: var(--muted); text-decoration: none; }
+.nav__link:hover,
+.nav__link--current { color: var(--ink); }
+ 
+/* ---------- Section ---------- */
+.section { padding: var(--space-9) 0; }
+.section--alt { background: var(--bg); border-block: 1px solid var(--line); }
+.section__title { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+.section__sub { max-width: 60ch; margin: var(--space-3) 0 0; color: var(--muted); }
+.section__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); margin-top: var(--space-6); }
+ 
+/* ---------- Footer ---------- */
+.site-footer { padding: 40px 0; background: var(--night); color: var(--on-night-soft); font-size: .92rem; }
+.site-footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-5); }
+.site-footer__brand { font-family: var(--mono); color: var(--on-night); }
+ 
+/* ---------- Responsivo ---------- */
+@media (max-width: 820px) {
+  .nav { gap: var(--space-4); }
+  .section { padding: var(--space-8) 0; }
 }
-
-.logo b {
-  color: var(--coral);
-}
-
-nav {
-  display: flex;
-  gap: 6px;
-  font-size: .85rem;
-}
-
-nav a {
-  text-decoration: none;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-weight: 500;
-  color: var(--navy);
-  transition: background .15s;
-}
-
-nav a:hover {
-  background: var(--sky);
-}
-
-section {
-  padding: 56px 0;
-}
-
-footer {
-  background: #fff;
-  color: var(--muted);
-  padding: 32px 0;
-  font-size: .8rem;
-  margin-top: 56px;
-  border-top: 2px solid var(--navy);
-}
-
-footer .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-@media(max-width: 760px) {
-  nav { gap: 0; font-size: .78rem; }
-  nav a { padding: 6px 9px; }
-}
-
-@media(prefers-reduced-motion: reduce) {
-  * { transition: none !important; scroll-behavior: auto !important; }
-}
+ 
