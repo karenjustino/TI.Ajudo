@@ -38,3 +38,25 @@
 .faq-cta p { margin: 0; color: var(--muted); font-size: .82rem; }
 @media (max-width: 780px) { .library-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .nav { flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; } }
 @media (max-width: 560px) { .library-hero__inner, .faq-hero__inner { padding: 26px 16px 20px; } .library-filters { grid-template-columns: 1fr; } .library-results { padding: 30px 16px 40px; } .library-grid { grid-template-columns: 1fr; } .faq-list { margin-top: 36px; padding: 0 16px; } .site-header__inner { height: auto; min-height: var(--header-h); padding-block: 10px; } }
+
+/* Mantém a escala das páginas novas próxima dos cards da página inicial. */
+.library-hero p, .faq-hero p { font-size: .95rem; }
+.library-filters input, .library-filters select { padding: 12px 14px; font-size: .9rem; }
+.library-grid { gap: 20px; }
+.library-card { min-height: 220px; padding: 22px; }
+.library-pill { padding: 6px 10px; font-size: .75rem; }
+.library-card h2 { font-size: 1rem; }
+.library-card > p { font-size: .88rem; }
+.library-card > footer a { font-size: .85rem; }
+.library-card > footer button { max-width: 160px; padding: 9px 12px; font-size: .8rem; }
+.faq-list { max-width: 940px; gap: 14px; }
+.faq-item summary { padding: 20px 22px; font-size: .95rem; }
+.faq-item__answer { padding: 16px 22px 20px; font-size: .92rem; }
+.faq-cta p { font-size: .95rem; }
+
+@media (max-width: 560px) {
+  .library-card { min-height: 200px; padding: 18px; }
+  .faq-list { margin-top: 36px; }
+  .faq-item summary { padding: 16px; }
+  .faq-item__answer { padding: 14px 16px 17px; }
+}

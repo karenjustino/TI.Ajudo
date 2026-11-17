@@ -46,3 +46,37 @@
 .roadmap__plan-entry { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 20px 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--soft); }
 .roadmap__plan-entry p { margin: 4px 0 0; color: var(--muted); font-size: .85rem; }
 @media (max-width: 560px) { .plan-modal { padding: 18px; } .plan-form__fields { display: grid; grid-template-columns: 1fr; } .plan-form input, .plan-form select { width: 100%; } .roadmap__plan-entry { align-items: flex-start; flex-direction: column; } }
+
+/* Tipografia e controles no mesmo tamanho dos demais cards do site. */
+.plan-modal { width: min(680px, calc(100% - 28px)); padding: 26px 28px; }
+.plan-modal__badge { padding: 7px 13px; font-size: .85rem; }
+.plan-modal h2 { font-size: 1.4rem; }
+.plan-form { padding: 18px; }
+.plan-form > strong { font-size: .95rem; }
+.plan-form input, .plan-form select,
+.plan-form .btn { font-size: .9rem; }
+.plan-form input, .plan-form select { padding: 12px; }
+.plan-form .btn { padding: 11px 16px; }
+.plan-progress { padding: 18px; }
+.plan-progress > div:first-child { font-size: .9rem; }
+.plan-item { padding: 13px; }
+.plan-item label strong,
+.plan-item a { font-size: .9rem; }
+.plan-item small { font-size: .8rem; }
+.plan-clear { font-size: .9rem; }
+.plan-empty { font-size: .95rem; }
+.catalog-trail { padding: 13px 15px; }
+.catalog-trail > summary { font-size: .92rem; }
+.catalog-trail > summary span,
+.catalog-step small { font-size: .8rem; }
+.catalog-trail > p,
+.catalog-step p { font-size: .88rem; }
+.catalog-tags { font-size: .85rem; }
+.catalog-step h4 { font-size: .92rem; }
+.catalog-step li { font-size: .85rem; }
+.catalog-add { padding: 7px 11px; font-size: .8rem; }
+.roadmap__plan-entry p { font-size: .95rem; }
+
+@media (max-width: 560px) {
+  .plan-modal { padding: 20px; }
+}

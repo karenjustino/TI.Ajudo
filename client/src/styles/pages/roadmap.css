@@ -283,3 +283,53 @@
 .dashboard-empty p { margin: 0; color: var(--muted); font-size: .85rem; }
 @media (max-width: 760px) { .roadmap__content { grid-template-columns: minmax(0, 1fr); gap: 18px; } .roadmap__side { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dashboard-trails { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .roadmap-hero { padding: 26px 18px; } .roadmap__content { padding: 0 14px; margin-top: 20px; } .roadmap__side { grid-template-columns: 1fr; } .roadmap__options-head { align-items: flex-start; flex-direction: column; } .study-option { padding: 14px; } .dashboard-hero { padding: 26px 16px 20px; } .dashboard-main { padding: 24px 14px 42px; } .dashboard-total { align-items: stretch; flex-direction: column; gap: 8px; } .dashboard-total__visual { width: 100%; } .dashboard-active { padding: 16px; } .dashboard-active__head { flex-direction: column; } .dashboard-active__progress-label { flex-direction: column; } }
+
+/* Aproxima os cards e textos das trilhas ao padrão de tamanho da página inicial. */
+.roadmap-hero__inner > p,
+.info-card p,
+.dashboard-hero__inner > p { font-size: .95rem; }
+.info-card { padding: 22px 24px; }
+.info-card h2 { font-size: 1rem; }
+.info-tags span { padding: 6px 10px; font-size: .8rem; }
+.roadmap__options-head .btn { padding: 12px 18px; font-size: .9rem; }
+.study-option { grid-template-columns: 40px minmax(0, 1fr); gap: 16px; padding: 24px; }
+.study-option__number { width: 40px; height: 40px; font-size: 1.1rem; }
+.study-option__body h3 { font-size: 1.05rem; }
+.study-option__body > p { font-size: .92rem; }
+.study-resource > a { padding: 8px 12px; font-size: .85rem; }
+.study-resource > a small { font-size: .75rem; }
+.study-resource > button { padding: 7px 11px; font-size: .8rem; }
+.roadmap__checklist > summary { font-size: .95rem; }
+.dashboard-hero { padding: 40px 20px 32px; }
+.dashboard-hero h1 { font-size: clamp(1.8rem, 4vw, 2.2rem); }
+.dashboard-total { padding: 20px 22px; }
+.dashboard-total small { font-size: .88rem; }
+.dashboard-main > h2 { font-size: 1.15rem; }
+.dashboard-trails { gap: 16px; }
+.dashboard-trail { gap: 10px; padding: 18px; }
+.dashboard-trail__top > strong,
+.dashboard-trail__icon { font-size: .9rem; }
+.dashboard-trail__name { font-size: .95rem; }
+.dashboard-trail > small { font-size: .8rem; }
+.dashboard-active { padding: 28px; }
+.dashboard-active__head h2 { font-size: 1.4rem; }
+.dashboard-active__head p,
+.dashboard-personal > p { font-size: .92rem; }
+.dashboard-active__head .btn { padding: 11px 16px; font-size: .85rem; }
+.dashboard-active__progress-label { font-size: .88rem; }
+.dashboard-level { padding: 18px 20px; }
+.dashboard-level h3 { font-size: .98rem; }
+.dashboard-level > header > span { font-size: .82rem; }
+.dashboard-level .check-item { font-size: .95rem; }
+.dashboard-personal h3 { font-size: 1rem; }
+.dashboard-personal__item { font-size: .9rem; }
+.dashboard-empty { padding: 32px; }
+.dashboard-empty h2 { font-size: 1.2rem; }
+.dashboard-empty p { font-size: .95rem; }
+
+@media (max-width: 520px) {
+  .study-option { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 18px; }
+  .study-option__number { width: 36px; height: 36px; }
+  .dashboard-active { padding: 18px; }
+  .dashboard-trail { padding: 14px; }
+}
