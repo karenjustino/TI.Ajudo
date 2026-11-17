@@ -44,24 +44,31 @@ function resultHtml(profile, name) {
       <button class="btn btn--secondary" type="button" data-act="plan">Baixar meu plano (.xlsx)</button>
       <button class="btn btn--secondary" type="button" data-act="retry">Refazer perguntas</button>
     </div>
-    <p class="result__note">Este plano é um ponto de partida, não uma decisão definitiva. Você pode refazer as perguntas quando quiser.</p>
+    <p class="result__note">Você pode refazer o questionário quando quiser.</p>
   </div>`;
 }
 
 function sheetHtml(profile, name) {
   const { trail, levelName, hoursPerWeek } = profile;
   const steps = trail.steps.map((step, i) =>
-    `<div class="print__step"><div><span class="print__box"></span><b>${i + 1}. ${esc(step.title)}</b></div><ul>` +
-    step.links.map((l) => `<li>${esc(l.label)}: ${esc(l.url)}</li>`).join("") +
-    '</ul><div class="print__line">Anotações:</div></div>').join("");
+    `<section class="print__step"><h3 class="print__step-title">${i + 1}. ${esc(step.title)}</h3><ul class="print__resources">` +
+    step.links.map((link) =>
+      `<li class="print__resource"><span class="print__box" aria-hidden="true"></span>` +
+      `<span><b>${esc(link.label)}</b> <a class="print__url" href="${esc(link.url)}">${esc(link.url)}</a></span></li>`).join("") +
+    '</ul><div class="print__line">Anotações:</div></section>').join("");
 
   return `<h1 class="print__title">Meu plano de estudos</h1>
-    <p>TI.Ajudo, gerado em ${new Date().toLocaleDateString("pt-BR")}</p>
-    <p>Nome: ${name ? esc(name) : "______________________________________"}</p>
-    <h2 class="print__heading">Trilha: ${esc(trail.name)}</h2>
-    <p>Nível informado: ${levelName}. Ritmo sugerido: ${hoursPerWeek} horas por semana.</p>
-    <h2 class="print__heading">Etapas</h2>${steps}
-    <p class="print__note">Os conteúdos listados são de terceiros e não pertencem ao TI.Ajudo.</p>`;
+    <p class="print__date">Gerado pelo TI.Ajudo em ${new Date().toLocaleDateString("pt-BR")}</p>
+    <table class="print__meta">
+      <colgroup><col><col><col><col></colgroup>
+      <tbody>
+        <tr><th scope="row">Trilha</th><td>${esc(trail.name)}</td><th scope="row">Nível informado</th><td>${esc(levelName)}</td></tr>
+        <tr><th scope="row">Tempo disponível</th><td>${hoursPerWeek} horas por semana</td><th scope="row">Nome</th><td>${name ? esc(name) : "&nbsp;"}</td></tr>
+        <tr><th scope="row">Foco do plano</th><td colspan="3">${esc(trail.description)}</td></tr>
+        <tr><th scope="row">Como usar</th><td colspan="3">Siga as etapas, marque as referências estudadas e use as linhas para anotações.</td></tr>
+      </tbody>
+    </table>
+    <h2 class="print__heading">Conteúdos e referências</h2>${steps}`;
 }
 
 function render() {

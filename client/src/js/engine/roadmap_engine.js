@@ -34,7 +34,7 @@ export function nextStep(roadmap, done) {
   return { level, index, topic: roadmap.levels[level][index] };
 }
 
-/** Atalhos de estudo para um tópico (troque por links curados quando houver API). */
+/** Gera links de busca no YouTube e Google para um tópico. */
 export function resourcesFor(topic, trailTitle) {
   const q = encodeURIComponent;
   return [

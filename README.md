@@ -1,145 +1,48 @@
 # TI.Ajudo
 
-<p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="Licença MIT">
-  <img src="https://img.shields.io/badge/JavaScript-ES6+-yellow" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Vite-Development-646CFF" alt="Vite">
-  <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-blue" alt="Status do projeto">
-</p>
+Aplicação web de orientação para quem está começando em tecnologia. Um questionário de perfil sugere uma trilha de estudos entre sete opções.
 
-<p align="center">
-  <strong>Uma orientação inteligente para descobrir caminhos na Tecnologia da Informação.</strong>
-</p>
+## Executar localmente
 
-## Sobre o projeto
-
-O **TI.Ajudo** é uma aplicação web desenvolvida para auxiliar pessoas interessadas em ingressar ou evoluir profissionalmente na área de Tecnologia da Informação.
-
-Por meio de um chatbot interativo, o sistema coleta informações sobre interesses, conhecimentos e objetivos do usuário. A partir das respostas, realiza uma avaliação de perfil e apresenta recomendações de áreas de atuação, sugestões de estudo e indicações de cursos.
-
-O projeto busca tornar a orientação profissional em TI mais acessível, ajudando cada pessoa a identificar possibilidades de desenvolvimento e aprendizagem.
-
-## Funcionalidades
-
-- Questionário interativo para identificação do perfil do usuário.
-- Avaliação de conhecimentos por meio de perguntas técnicas.
-- Identificação de níveis de conhecimento.
-- Recomendação de áreas profissionais em Tecnologia da Informação.
-- Sugestão de planos de estudo.
-- Indicação de cursos e plataformas de aprendizagem.
-- Apresentação dos resultados de acordo com as respostas fornecidas.
-
-## Tecnologias utilizadas
-
-| Tecnologia | Descrição |
-|---|---|
-| HTML5 | Estrutura das páginas. |
-| CSS3 | Estilização e responsividade. |
-| JavaScript | Lógica e interatividade da aplicação. |
-| Node.js | Ambiente de execução utilizado nas ferramentas de desenvolvimento. |
-| npm | Gerenciamento de pacotes e dependências. |
-| Vite | Servidor de desenvolvimento e ferramenta de build. |
-
-## Ferramentas necessárias
-
-Para executar o projeto localmente, você precisará de:
-
-- [Visual Studio Code](https://code.visualstudio.com/) — editor de código.
-- [Node.js](https://nodejs.org/) — ambiente necessário para executar o Vite.
-- npm — gerenciador de pacotes instalado junto com o Node.js.
-- [Git](https://git-scm.com/) — controle de versão.
-- [GitHub](https://github.com/) — hospedagem do repositório.
-
-## Como executar o projeto
-
-**1. Clone o repositório**
-
-```bash
-git clone https://github.com/SEU-USUARIO/TI.Ajudo.git
-```
-
-**2. Acesse a pasta do projeto**
-
-```bash
-cd TI.Ajudo
-```
-
-**3. Instale as dependências**
+Requer Node.js e npm. Na raiz do projeto:
 
 ```bash
 npm install
-```
-
-Esse comando instala as dependências definidas no `package.json` e cria a pasta `node_modules`, onde ficam armazenados os pacotes necessários ao projeto.
-
-**4. Inicie o servidor de desenvolvimento**
-
-```bash
 npm run dev
 ```
 
-**5. Acesse a aplicação**
+Abra o endereço informado pelo Vite. As páginas disponíveis são:
 
-Abra no navegador o endereço apresentado pelo Vite, normalmente:
+- `client/index.html` — apresentação do projeto e trilhas.
+- `client/assistente.html` — questionário, resultado e importação de conteúdos em planilha.
+- `client/roadmap.html?trilha=dev` — roadmap da trilha selecionada. Os slugs disponíveis são `dev`, `dados`, `ciber`, `redes`, `gestao`, `ux` e `cloud`.
 
-```text
-http://localhost:5173
+Para gerar a versão de produção:
+
+```bash
+npm run build
 ```
 
-Para acessar diretamente o assistente:
+## Como funciona
 
-```text
-http://localhost:5173/assistente.html
-```
+O questionário considera interesses, preferências de trabalho, relação com matemática e lógica, nível informado e tempo disponível para estudo. Regras de pontuação ordenam as trilhas e mostram as três mais próximas das respostas. O plano exibido corresponde à trilha mais bem classificada.
 
-## Estrutura do projeto
+As recomendações são heurísticas locais. A versão atual não aplica testes técnicos nem usa IA generativa. O progresso dos roadmaps é salvo no armazenamento local do navegador; as respostas do questionário não são enviadas a um servidor.
 
-```text
-TI.Ajudo/
-│
-├── client/
-│   ├── index.html
-│   ├── assistente.html
-│   │
-│   └── src/
-│       ├── js/
-│       │   ├── data/
-│       │   ├── engine/
-│       │   ├── ui/
-│       │   ├── assistente.js
-│       │   └── main.js
-│       │
-│       └── styles/
-│           ├── components/
-│           ├── pages/
-│           ├── base.css
-│           ├── layout.css
-│           ├── main.css
-│           └── tokens.css
-│
-├── .gitignore
-├── LICENSE
-├── package.json
-├── package-lock.json
-└── vite.config.js
-```
+Na página do assistente, é possível baixar um modelo de planilha e importar conteúdos para substituir as etapas das trilhas durante a sessão.
 
-**Organização dos diretórios:**
+## Estrutura
 
-- `data`: perguntas, informações e catálogo de cursos.
-- `engine`: lógica de avaliação e recomendação.
-- `ui`: interface e componentes do chatbot.
-- `styles`: arquivos de estilização da aplicação.
-
-## Dependências
-
-As dependências do projeto são gerenciadas pelo npm e registradas nos arquivos `package.json` e `package-lock.json`.
-
-A pasta `node_modules` é criada automaticamente durante a instalação e não precisa ser enviada ao repositório. O mesmo vale para a pasta `dist`, gerada durante o processo de build.
+- `client/*.html`: páginas da aplicação.
+- `client/src/js/data/`: perguntas e catálogos.
+- `client/src/js/engine/`: pontuação e progresso dos roadmaps.
+- `client/src/js/ui/`: questionário, resultados, planilhas e roadmaps.
+- `client/src/styles/`: estilos globais, componentes e páginas.
+- `docs/`: requisitos e arquitetura.
 
 ## Equipe
 
-Desenvolvido por estudantes do curso de **Ciência da Computação** do Centro Universitário Braz Cubas.
+Projeto desenvolvido por estudantes de Ciência da Computação do Centro Universitário Braz Cubas:
 
 - Gabriel Anastácio Pereira
 - Karen Gabrielle Justino
@@ -147,10 +50,4 @@ Desenvolvido por estudantes do curso de **Ciência da Computação** do Centro U
 
 ## Licença
 
-Este projeto está licenciado sob a **MIT License**. Consulte o arquivo [LICENSE](LICENSE) para obter mais informações.
-
----
-
-<p align="center">
-  Desenvolvido com dedicação para ajudar pessoas a descobrirem seu caminho na Tecnologia da Informação.
-</p>
+Licenciado sob a MIT License. Consulte [LICENSE](LICENSE).

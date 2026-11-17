@@ -1,7 +1,7 @@
 # Documento de Requisitos — TI.Ajudo
 
-**Versão:** 1.4 
-**Data:** 02/11/2026
+**Versão:** 1.5
+**Data:** 16/11/2026
 
 **Desenvolvedores:** Karen Gabrielle Justino, Gabriel Anastácio Pereira, Miguel Pereira
 
@@ -15,15 +15,13 @@
 
 ### 1.1 Objetivo
 
-O TI.Ajudo é uma aplicação web de orientação vocacional e técnica em Tecnologia da Informação. Por meio de um questionário interativo e conversacional, o sistema identifica interesses, conhecimentos técnicos prévios, objetivos e preferências do usuário.
+O objetivo do TI.Ajudo é orientar pessoas interessadas em Tecnologia da Informação por meio de um questionário conversacional. Os requisitos incluem identificar interesses, conhecimentos prévios, objetivos e preferências; na versão atual, o questionário coleta interesses, preferências, nível autodeclarado e tempo disponível.
 
 Com base nas respostas, apresenta recomendações de áreas profissionais, uma avaliação introdutória dos conhecimentos identificados e sugestões iniciais de aprendizagem. O público prioritário é formado por pessoas que estão começando em TI ou que desejam direcionar sua trajetória na área.
 
 ### 1.2 Escopo
 
-A aplicação possui uma página inicial com informações sobre o projeto e acesso ao orientador, além de uma página dedicada ao assistente virtual.
-
-O orientador conduz o usuário por perguntas de perfil e, conforme as respostas, pode selecionar testes introdutórios. Ao final, apresenta até três áreas recomendadas, resultados por assunto, tecnologias relacionadas e um plano inicial de estudos.
+A aplicação possui uma página inicial, um questionário de perfil e páginas de roadmap. Na versão atual, o questionário recomenda uma trilha entre sete opções com base nas respostas. Testes técnicos e avaliação por assunto permanecem como requisitos planejados.
 
 **Dentro do escopo:**
 
@@ -48,7 +46,7 @@ O orientador conduz o usuário por perguntas de perfil e, conforme as respostas,
 
 ### 1.3 Público-alvo e personas
 
-O público-alvo inclui estudantes, profissionais em transição de carreira e pessoas interessadas em conhecer a área de tecnologia.
+Os perfis abaixo são exemplos de público-alvo, não resultados de entrevistas ou pesquisa com usuários.
 
 | Persona | Grupo | Perfil | Necessidade |
 |---|---|---|---|
@@ -80,11 +78,11 @@ Os requisitos abaixo descrevem as funcionalidades previstas e sua situação na 
 | ID | Requisito | Prioridade | Status |
 |---|---|---|---|
 | RF01 | O sistema deve apresentar perguntas para identificar os interesses do usuário em diferentes áreas de TI. | Alta | Implementado |
-| RF02 | O sistema deve identificar conhecimentos prévios e familiaridade com tecnologias e ferramentas. | Alta | Parcialmente implementado |
-| RF03 | O sistema deve apresentar perguntas técnicas de múltipla escolha conforme os conhecimentos e interesses declarados. | Alta | Implementado |
+| RF02 | O sistema deve identificar conhecimentos prévios e familiaridade com tecnologias e ferramentas. | Alta | Parcialmente implementado: pergunta o nível autodeclarado, sem verificar ferramentas específicas. |
+| RF03 | O sistema deve apresentar perguntas técnicas de múltipla escolha conforme os conhecimentos e interesses declarados. | Alta | Não implementado |
 | RF04 | O sistema deve considerar preferências comportamentais e formas de trabalho na análise do perfil. | Alta | Parcialmente implementado |
-| RF05 | O sistema deve calcular e apresentar até três áreas compatíveis com o perfil do usuário. | Alta | Implementado |
-| RF06 | O sistema deve montar um plano inicial de estudos considerando os conhecimentos identificados. | Alta | Implementado |
+| RF05 | O sistema deve calcular e apresentar até três áreas compatíveis com o perfil do usuário. | Alta | Parcialmente implementado: apresenta as três trilhas mais bem classificadas. |
+| RF06 | O sistema deve montar um plano inicial de estudos considerando os conhecimentos identificados. | Alta | Parcialmente implementado: usa o nível autodeclarado para sugerir a etapa inicial. |
 | RF07 | O sistema deve permitir retornar a perguntas anteriores e alterar respostas. | Média | Implementado |
 | RF08 | O sistema deve apresentar o progresso do questionário. | Média | Implementado |
 | RF09 | O sistema deve permitir reiniciar o questionário e descartar as respostas da tentativa atual. | Baixa | Implementado |
@@ -201,9 +199,9 @@ A aplicação utiliza uma arquitetura modular no front-end, separando interface,
 | Recomendação | área indicada, conhecimentos avaliados e informações utilizadas. |
 | Plano de estudos | área, tópicos sugeridos e sequência de aprendizagem. |
 
-### 6.3 Áreas contempladas
+### 6.3 Áreas previstas
 
-A versão atual contempla 19 possibilidades de recomendação:
+O escopo considera as seguintes possibilidades de recomendação:
 
 1. Front-end.
 2. Back-end.
@@ -225,6 +223,8 @@ A versão atual contempla 19 possibilidades de recomendação:
 18. Gestão de Projetos.
 19. Qualidade e Testes de Software (QA).
 
+Na versão atual, o questionário recomenda entre sete trilhas: Desenvolvimento, Dados & Analytics, Cibersegurança, Redes & Infraestrutura, Gestão & Governança, Produto & Experiência e Cloud & DevOps.
+
 ### 6.4 Tecnologias e arquitetura
 
 **Front-end:**
@@ -236,7 +236,7 @@ A versão atual contempla 19 possibilidades de recomendação:
 **Dados e lógica:**
 - Estruturas locais em módulos JavaScript.
 - Algoritmo local de avaliação e recomendação.
-- Organização preparada para futuras integrações com API ou back-end.
+- Dados e regras carregados localmente, sem API ou back-end.
 
 A versão atual não depende de banco de dados ou servidor próprio para executar o questionário.
 
@@ -269,52 +269,28 @@ A versão atual não depende de banco de dados ou servidor próprio para executa
 
 ### 8.1 Fluxo implementado
 
-A versão atual apresenta uma experiência conversacional, conduzindo o usuário por etapas de identificação de perfil e conhecimentos.
+A versão atual conduz o usuário por seis perguntas de perfil. O fluxo:
 
-O fluxo contempla:
+- pergunta o nível de conhecimento que a própria pessoa informa;
+- coleta interesses, preferências de trabalho e de atividade, relação com matemática e lógica, e tempo disponível;
+- permite voltar uma pergunta, reiniciar e informar o nome opcionalmente;
+- apresenta as três trilhas mais bem classificadas e um plano para a primeira.
 
-- Boas-vindas e apresentação do orientador.
-- Perguntas sobre conhecimentos, interesses, objetivos e preferências.
-- Respostas por opções clicáveis e múltipla seleção quando aplicável.
-- Seleção condicional de testes introdutórios.
-- Indicador de progresso.
-- Possibilidade de retornar e alterar respostas.
-- Revisão das informações antes da avaliação.
-- Campo opcional para informar o nome.
-- Apresentação de resultados por assunto.
-- Recomendações de até três áreas.
-- Sugestões de tecnologias e plano inicial de estudos.
-- Opção de reiniciar o questionário.
-
-Para usuários que estão começando do zero, o fluxo prioriza a identificação do perfil e não exige testes técnicos.
+Não há testes técnicos, revisão de respostas nem resultados de proficiência por assunto na versão atual.
 
 ### 8.2 Avaliação e classificação
 
-A avaliação utiliza regras previamente definidas para combinar informações declaradas pelo usuário e resultados dos testes disponíveis.
+O módulo `recommend.js` soma os pesos associados às respostas e ordena as sete trilhas. O nível autodeclarado define a etapa inicial sugerida no plano; não é validado por prova. A quantidade de horas semanais é exibida como informação, mas não altera a pontuação.
 
-A regra documentada para assuntos com teste combina até 35% de participação da autodeclaração e 65% de participação do desempenho no teste.
-
-| Pontuação | Classificação |
-|---|---|
-| Abaixo de 45 | Básico |
-| De 45 a 79 | Intermediário |
-| A partir de 80 | Avançado |
-
-A classificação avançada depende de evidência obtida por teste. Sem teste disponível, o sistema não deve afirmar que o usuário possui nível avançado naquele assunto.
-
-A média geral considera somente os assuntos efetivamente avaliados. Os resultados individuais por assunto devem ser considerados na interpretação do perfil.
-
-Os pesos e limiares devem permanecer centralizados no módulo `recommend.js`. Alterações no algoritmo devem ser refletidas neste documento e no documento de arquitetura.
+Testes técnicos, classificação por assunto e combinação de autodeclaração com desempenho são requisitos futuros. Os critérios de pontuação deverão ser definidos antes de implementar essa avaliação.
 
 ### 8.3 Catálogo de aprendizagem
 
-O catálogo possui referências para plataformas com opções gratuitas, como Curso em Vídeo, Fundação Bradesco, Recode, Santander Open Academy e Eu Capacito, além de plataformas com opções pagas, como Udemy e Alura.
-
-Os links direcionam para as plataformas ou seus catálogos de conteúdo, não necessariamente para um curso individual. Disponibilidade, preços e condições podem mudar.
+O catálogo atual reúne links para documentação, cursos e plataformas como MDN Web Docs, freeCodeCamp, Khan Academy, Cisco Networking Academy, Linux Journey, OWASP, Figma e AWS Skill Builder. Alguns links levam à página inicial ou a um catálogo, não a um curso específico.
 
 ### 8.4 Limitações conhecidas
 
-- Os testes são introdutórios e não certificam proficiência.
+- Os testes técnicos previstos são introdutórios e não devem ser tratados como certificação de proficiência.
 - O algoritmo é baseado em regras, não em IA generativa.
 - As recomendações dependem das perguntas, dos pesos e das informações cadastradas.
 - O plano de estudos é uma orientação inicial.
@@ -337,4 +313,4 @@ Os links direcionam para as plataformas ou seus catálogos de conteúdo, não ne
 
 ---
 
-**Documento atualizado para representar os requisitos, funcionalidades e limitações conhecidas da versão 1.5 do TI.Ajudo.**
+**Este documento reúne requisitos planejados e o status conhecido da versão 1.5 do TI.Ajudo.**

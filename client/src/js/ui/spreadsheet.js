@@ -1,4 +1,5 @@
-/* ui/spreadsheet.js — modelo, importação e exportação em .xlsx (biblioteca SheetJS, carregada por <script> no HTML). */
+/* ui/spreadsheet.js — modelo, importação e exportação de planilhas .xlsx. */
+import * as XLSX from "xlsx";
 import { TRAILS } from "../data/catalog.js";
 import { $, setStatus } from "./dom.js";
 
@@ -6,11 +7,6 @@ const normalize = (value) =>
   String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 
 function download(rows, sheetName, fileName, columnWidths) {
-  const XLSX = window.XLSX;
-  if (!XLSX) {
-    setStatus("A biblioteca de planilhas não carregou. Verifique sua conexão e recarregue a página.");
-    return;
-  }
   const sheet = XLSX.utils.json_to_sheet(rows);
   sheet["!cols"] = columnWidths.map((wch) => ({ wch }));
   const book = XLSX.utils.book_new();
@@ -38,7 +34,6 @@ export function exportPlan(profile) {
 /** Lê a planilha e troca as etapas das trilhas citadas. Retorna quantas linhas valeram. */
 async function importFile(file, onCatalogChange) {
   try {
-    const XLSX = window.XLSX;
     const book = XLSX.read(await file.arrayBuffer());
     const rows = XLSX.utils.sheet_to_json(book.Sheets[book.SheetNames[0]]);
     const byTrail = {};

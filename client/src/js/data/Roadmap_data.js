@@ -1,5 +1,4 @@
-/* data/roadmap_data.js — trilhas, níveis e checklists.
-   Quando a API existir, troque ROADMAPS por um fetch com o mesmo formato. */
+/* Dados das trilhas, níveis e checklists exibidos na página de roadmap. */
 
 export const STAGES = ["Fundamentos", "Prática", "Especialização", "Carreira"];
 

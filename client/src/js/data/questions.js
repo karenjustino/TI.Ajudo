@@ -2,7 +2,7 @@
    Cada opção tem `weights`: { índiceDaTrilha: pontos } (ver data/catalog.js).
    Opção sem `weights` não influencia o perfil (ex.: "Ainda não sei"). */
 
-const NOT_SURE = { label: "Ainda não sei, e tudo bem." };
+const NOT_SURE = { label: "Ainda não sei." };
 
 export const QUESTIONS = [
   {
@@ -68,11 +68,11 @@ export const QUESTIONS = [
 
 /* Frase de incentivo após responder a pergunta de mesmo índice (null = nenhuma). */
 export const FEEDBACK = [
-  "Obrigado por contar! Todo mundo começa de algum lugar.",
+  "Entendi. Isso define seu ponto de partida.",
   null,
-  "Boa! Isso já ajuda a afinar as sugestões.",
+  "Entendi. Vou considerar isso ao ordenar as trilhas.",
   null,
-  "Quase lá, falta só uma!",
+  "Só falta uma pergunta.",
 ];
 
 /* Índices seguem a ordem das opções das perguntas 1 (nível) e 6 (tempo). */
