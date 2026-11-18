@@ -18,6 +18,7 @@
   background: var(--soft); color: var(--ink);
   font: 700 .95rem var(--mono);
 }
+.trail-card__icon img { width: 100%; height: 100%; object-fit: contain; }
 .trail-card__title { font-size: 1.05rem; }
 .trail-card__desc { margin: 0; font-size: .92rem; opacity: .85; }
 .trail-card__level {
