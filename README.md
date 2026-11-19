@@ -1,27 +1,55 @@
 # TI.Ajudo
 
-Aplicação web de orientação para quem está começando em tecnologia. Um questionário de perfil sugere uma trilha de estudos entre sete opções.
+Aplicação web para ajudar quem está começando em tecnologia a conhecer áreas de TI e organizar os primeiros estudos. Um questionário de perfil recomenda trilhas e apresenta um plano inicial de estudos.
 
 ## Executar localmente
 
-Requer Node.js e npm. Na raiz do projeto:
+Requer Node.js e npm. Na raiz do projeto, instale as dependências e inicie o servidor de desenvolvimento:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abra o endereço informado pelo Vite. As páginas disponíveis são:
+Abra no navegador o endereço informado pelo Vite (por padrão, `http://localhost:5173`).
 
-- `client/index.html` — apresentação do projeto e trilhas.
-- `client/assistente.html` — questionário, resultado e importação de conteúdos em planilha.
-- `client/roadmap.html?trilha=dev` — roadmap da trilha selecionada. Os slugs disponíveis são `dev`, `dados`, `ciber`, `redes`, `gestao`, `ux` e `cloud`.
+## Páginas
 
-Para gerar a versão de produção:
+- `client/index.html` — apresentação do projeto e das sete trilhas.
+- `client/assistente.html` — questionário, recomendações e importação de conteúdos por planilha (`.xlsx`, `.xls` ou `.csv`).
+- `client/roadmap.html?trilha=dev` — etapas e progresso de uma trilha. Os slugs são `dev`, `dados`, `ciber`, `redes`, `gestao`, `ux` e `cloud`.
+- `client/meu-plano.html` — painel do plano e do progresso salvos neste navegador.
+- `client/biblioteca.html` — busca e filtros de materiais por trilha e tipo.
+- `client/faq.html` — respostas a dúvidas sobre o questionário, as trilhas e o plano.
 
-```bash
-npm run build
-```
+## Interfaces
+
+### Página inicial
+
+<img src="docs/screenshots/Index1.png" alt="Página inicial do TI.Ajudo" width="48%">
+<img src="docs/screenshots/Index2.png" alt="Seção de trilhas da página inicial" width="48%">
+
+### Assistente
+
+<img src="docs/screenshots/assistente1.png" alt="Questionário do assistente" width="48%">
+<img src="docs/screenshots/assistente2.png" alt="Resultado do assistente" width="48%">
+
+### Roadmap
+
+<img src="docs/screenshots/roadmap1.png" alt="Etapas do roadmap" width="48%">
+<img src="docs/screenshots/roadmap2.png" alt="Progresso do roadmap" width="48%">
+
+### Meu plano
+
+<img src="docs/screenshots/meu-plano.png" alt="Painel do meu plano">
+
+### Biblioteca
+
+<img src="docs/screenshots/biblioteca.png" alt="Biblioteca de conteúdos">
+
+### FAQ
+
+<img src="docs/screenshots/FAQ.png" alt="Perguntas frequentes">
 
 ## Como funciona
 
@@ -31,14 +59,20 @@ As recomendações são heurísticas locais. A versão atual não aplica testes 
 
 Na página do assistente, é possível baixar um modelo de planilha e importar conteúdos para substituir as etapas das trilhas durante a sessão.
 
-## Estrutura
+## Tecnologias
 
-- `client/*.html`: páginas da aplicação.
-- `client/src/js/data/`: perguntas e catálogos.
-- `client/src/js/engine/`: pontuação e progresso dos roadmaps.
-- `client/src/js/ui/`: questionário, resultados, planilhas e roadmaps.
-- `client/src/styles/`: estilos globais, componentes e páginas.
-- `docs/`: requisitos e arquitetura.
+- HTML, CSS e JavaScript.
+- [Vite](https://vite.dev/) para desenvolvimento e build.
+- [SheetJS](https://sheetjs.com/) para leitura e geração de planilhas.
+
+## Estrutura do projeto
+
+- `client/*.html` — páginas da aplicação.
+- `client/src/js/data/` — perguntas, catálogos e conteúdos dos roadmaps.
+- `client/src/js/engine/` — recomendação e regras de progresso.
+- `client/src/js/ui/` — interfaces do questionário, resultados, planilhas e roadmaps.
+- `client/src/styles/` — estilos globais, componentes e páginas.
+- `docs/` — requisitos e documentação da arquitetura.
 
 ## Equipe
 
