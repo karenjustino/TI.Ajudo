@@ -26,18 +26,18 @@ Abra no navegador o endereço informado pelo Vite (por padrão, `http://localhos
 
 ### Página inicial
 
-<img src="docs/screenshots/Index1.png" alt="Página inicial do TI.Ajudo" width="48%">
-<img src="docs/screenshots/Index2.png" alt="Seção de trilhas da página inicial" width="48%">
+<img src="docs/screenshots/Index1.png" alt="Página inicial do TI.Ajudo">
+<img src="docs/screenshots/Index2.png" alt="Seção de trilhas da página inicial">
 
 ### Assistente
 
-<img src="docs/screenshots/assistente1.png" alt="Questionário do assistente" width="48%">
-<img src="docs/screenshots/assistente2.png" alt="Resultado do assistente" width="48%">
+<img src="docs/screenshots/assistente1.png" alt="Questionário do assistente">
+<img src="docs/screenshots/assistente2.png" alt="Resultado do assistente">
 
 ### Roadmap
 
-<img src="docs/screenshots/roadmap1.png" alt="Etapas do roadmap" width="48%">
-<img src="docs/screenshots/roadmap2.png" alt="Progresso do roadmap" width="48%">
+<img src="docs/screenshots/roadmap1.png" alt="Etapas do roadmap">
+<img src="docs/screenshots/roadmap2.png" alt="Progresso do roadmap">
 
 ### Meu plano
 
