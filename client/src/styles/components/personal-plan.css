@@ -1,0 +1,82 @@
+.plan-modal { width: min(510px, calc(100% - 28px)); max-height: min(82vh, 720px); padding: 22px 24px; border: 0; border-radius: 20px; color: var(--ink); background: var(--surface); box-shadow: var(--shadow-card); }
+.plan-modal::backdrop { background: rgba(20, 18, 27, .58); backdrop-filter: blur(3px); }
+.plan-modal__head { display: flex; align-items: center; justify-content: space-between; }
+.plan-modal__badge { padding: 6px 12px; border-radius: 999px; background: var(--blue); color: var(--ink); font-size: .75rem; }
+.plan-modal__close { border: 0; background: none; color: var(--muted); font-size: 1.6rem; cursor: pointer; }
+.plan-modal h2 { margin: 8px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); font: 700 1.25rem var(--mono); }
+.plan-form { padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--soft); }
+.plan-form > strong { display: block; margin-bottom: 8px; font: 700 .82rem var(--mono); }
+.plan-form__fields { display: flex; flex-wrap: wrap; gap: 7px; }
+.plan-form input, .plan-form select { min-width: 0; flex: 1 1 150px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: .8rem; }
+.plan-form .btn { padding: 9px 13px; font-size: .8rem; }
+.plan-progress { margin: 16px 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; }
+.plan-progress > div:first-child { display: flex; justify-content: space-between; gap: 8px; font-size: .78rem; }
+.plan-progress > div:first-child > strong { color: var(--brand); }
+.plan-progress__bar { height: 7px; margin-top: 8px; overflow: hidden; border-radius: 8px; background: var(--soft); }
+.plan-progress__bar span { display: block; height: 100%; background: var(--blue); transition: width .2s; }
+.plan-group { margin: 10px 0; }
+.plan-group h3 { margin: 12px 0 6px; font: 700 .85rem var(--mono); }
+.plan-item { display: flex; align-items: center; gap: 10px; margin-top: 6px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; }
+.plan-item > label { display: flex; flex: 1; align-items: center; gap: 9px; min-width: 0; cursor: pointer; }
+.plan-item input { accent-color: var(--brand); }
+.plan-item label span { display: grid; gap: 3px; min-width: 0; }
+.plan-item label strong { font-size: .78rem; overflow-wrap: anywhere; }
+.plan-item small { color: var(--muted); font-size: .7rem; }
+.plan-item a { color: var(--muted); font-size: .75rem; white-space: nowrap; }
+.plan-item__remove { border: 0; background: none; color: var(--muted); font-size: 1.15rem; cursor: pointer; }
+.plan-clear { display: block; margin: 14px 0 0 auto; padding: 8px 0 0; border: 0; border-top: 1px solid var(--line); background: none; font: 600 .78rem var(--sans); text-decoration: underline; cursor: pointer; }
+.plan-empty { margin: 16px 2px; color: var(--muted); font-size: .85rem; }
+.plan-catalog { margin: 16px 0; padding-top: 12px; border-top: 1px solid var(--line); }
+.plan-catalog > h3 { margin: 0 0 8px; font: 700 .9rem var(--mono); }
+.plan-catalog > input { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: .82rem; }
+.catalog-trail { margin-top: 8px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; }
+.catalog-trail > summary { display: flex; justify-content: space-between; gap: 8px; cursor: pointer; font-weight: 600; font-size: .82rem; }
+.catalog-trail > summary span, .catalog-step small { color: var(--muted); font-size: .7rem; }
+.catalog-trail > p { margin: 8px 0; color: var(--muted); font-size: .78rem; }
+.catalog-tags { display: grid; gap: 5px; margin: 10px 0; font-size: .75rem; }
+.catalog-step { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.catalog-step h4 { margin: 0; font: 700 .78rem var(--mono); }
+.catalog-step p { margin: 4px 0 8px; color: var(--muted); font-size: .75rem; }
+.catalog-step ul { margin: 0; padding: 0; list-style: none; }
+.catalog-step li { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid var(--line); font-size: .75rem; }
+.catalog-step li > span { flex: 1 1 100%; }
+.catalog-step li > a { color: var(--muted); }
+.catalog-add { padding: 5px 9px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font: 600 .7rem var(--sans); cursor: pointer; }
+.catalog-add:hover { border-color: var(--brand); }
+.roadmap__plan-entry { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 20px 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--soft); }
+.roadmap__plan-entry p { margin: 4px 0 0; color: var(--muted); font-size: .85rem; }
+@media (max-width: 560px) { .plan-modal { padding: 18px; } .plan-form__fields { display: grid; grid-template-columns: 1fr; } .plan-form input, .plan-form select { width: 100%; } .roadmap__plan-entry { align-items: flex-start; flex-direction: column; } }
+
+/* Tipografia e controles no mesmo tamanho dos demais cards do site. */
+.plan-modal { width: min(680px, calc(100% - 28px)); padding: 26px 28px; }
+.plan-modal__badge { padding: 7px 13px; font-size: .85rem; }
+.plan-modal h2 { font-size: 1.4rem; }
+.plan-form { padding: 18px; }
+.plan-form > strong { font-size: .95rem; }
+.plan-form input, .plan-form select,
+.plan-form .btn { font-size: .9rem; }
+.plan-form input, .plan-form select { padding: 12px; }
+.plan-form .btn { padding: 11px 16px; }
+.plan-progress { padding: 18px; }
+.plan-progress > div:first-child { font-size: .9rem; }
+.plan-item { padding: 13px; }
+.plan-item label strong,
+.plan-item a { font-size: .9rem; }
+.plan-item small { font-size: .8rem; }
+.plan-clear { font-size: .9rem; }
+.plan-empty { font-size: .95rem; }
+.catalog-trail { padding: 13px 15px; }
+.catalog-trail > summary { font-size: .92rem; }
+.catalog-trail > summary span,
+.catalog-step small { font-size: .8rem; }
+.catalog-trail > p,
+.catalog-step p { font-size: .88rem; }
+.catalog-tags { font-size: .85rem; }
+.catalog-step h4 { font-size: .92rem; }
+.catalog-step li { font-size: .85rem; }
+.catalog-add { padding: 7px 11px; font-size: .8rem; }
+.roadmap__plan-entry p { font-size: .95rem; }
+
+@media (max-width: 560px) {
+  .plan-modal { padding: 20px; }
+}

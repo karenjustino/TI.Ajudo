@@ -1,7 +1,7 @@
 {
   "name": "ti-ajudo",
   "version": "1.0.0",
-  "description": "Orientador vocacional e técnico em TI para iniciantes: questionário e trilhas de estudo personalizadas.",
+  "description": "Questionário de perfil e trilhas de estudo para iniciantes em tecnologia.",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,9 +9,17 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["ti", "trilhas", "orientacao-vocacional", "vite"],
-  "license": "ISC",
+  "keywords": [
+    "ti",
+    "trilhas",
+    "orientacao-vocacional",
+    "vite"
+  ],
+  "license": "MIT",
   "devDependencies": {
-    "vite": "^8.3.4"
+    "vite": "^6.4.1"
+  },
+  "dependencies": {
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   }
 }

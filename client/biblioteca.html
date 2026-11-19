@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Biblioteca de Conteúdos — TI.Ajudo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="stylesheet" href="./src/styles/pages/library-faq.css">
+</head>
+<body>
+  <a class="skip-link" href="#library-results">Ir para o conteúdo</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="./index.html">TI.Ajudo</a>
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="./assistente.html">Orientador</a>
+        <a class="nav__link" href="./index.html#trilhas">Trilhas</a>
+        <a class="nav__link" href="./meu-plano.html">Meu plano</a>
+        <a class="nav__link nav__link--current" href="./biblioteca.html" aria-current="page">Biblioteca</a>
+        <a class="nav__link" href="./faq.html">FAQ</a>
+        <a class="nav__link" href="./index.html#sobre">Sobre</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="library-hero">
+      <div class="library-hero__inner">
+        <h1>Biblioteca de Conteúdos</h1>
+        <p>Busque por título ou filtre os materiais por trilha e tipo.</p>
+        <div class="library-filters">
+          <label class="visually-hidden" for="library-search">Buscar por título ou palavra-chave</label>
+          <input id="library-search" type="search" placeholder="Buscar por título ou palavra-chave...">
+          <label class="visually-hidden" for="library-trail">Filtrar por trilha</label>
+          <select id="library-trail"><option value="">Todas as Trilhas</option></select>
+          <label class="visually-hidden" for="library-type">Filtrar por tipo</label>
+          <select id="library-type"><option value="">Todos os Tipos</option></select>
+        </div>
+      </div>
+    </section>
+    <section class="library-results container" id="library-results">
+      <p class="library-count" aria-live="polite"></p>
+      <div class="library-grid"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div><strong class="site-footer__brand">TI.Ajudo</strong><br>Trabalho de Conclusão de Curso, 2026</div>
+      <div>[Curso] · [Instituição]<br>Orientação: [Nome do orientador]</div>
+    </div>
+  </footer>
+  <script type="module" src="./src/js/library.js"></script>
+</body>
+</html>

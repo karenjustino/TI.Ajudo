@@ -1,13 +1,20 @@
 :root {
   color-scheme: light;
-  --navy: #1b324f;
-  --steel: #36586a;
-  --sky: #99bfd5;
-  --sand: #eccca6;
-  --coral: #e95c6c;
-  --peach: #f7a088;
-  --ink: #0b131f;       /* Letra principal bem escura e nítida */
-  --muted: #2d3b4e;     /* Texto secundário mais escuro para excelente leitura */
-  --grid: #d5e1ef;
-  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+ 
+  --bg: #fff;
+  --surface: #fff;
+  --night: #2a2640;      /* fundo do footer */
+  --ink: #111;           /* texto principal: preto */
+  --muted: #55535f;      /* texto secundário: cinza neutro */
+  --line: #e6ddd0;
+  --brand: #4b3f72;      /* roxo: só fundos, bordas e sombras (nunca texto) */
+  --blue: #7EBBD9;      /* azul: painel do hero e badge */
+  --sand: #f3d9a4;
+  --coral: #b4475a;
+  --soft: #f6f1fa;
+  --grid: rgba(75, 63, 114, .07);
+ 
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --sans: "Inter", system-ui, sans-serif;
+  --header-h: 64px;
 }
